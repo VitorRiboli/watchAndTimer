@@ -39,4 +39,5 @@ zerar.addEventListener('click', function (event) {
     clearInterval(watchTimer);
     timer.innerHTML = '00:00:00'
     timer.style.color = 'green'
+    second = 0;
 })

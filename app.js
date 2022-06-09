@@ -7,28 +7,32 @@ function getTimeSecond(second) {  //criar os segundos e retornar-los
     })
 }
 
-
 const timer = document.querySelector('.timer');
 const iniciar = document.querySelector('.iniciar');
 const pausar = document.querySelector('.pausar');
 const zerar = document.querySelector('.zerar');
 let second = 0;
-let minute = 0;
-let hour = 0;
+let watchTimer;
 
 function startTimer() {  //função para iniciar o timer
+    watchTimer = setInterval(() => {
+        second++; //a cada segundo adiciona um
+        timer.innerHTML = getTimeSecond(second);
+    }, 1000)
+
 
 }
 
 iniciar.addEventListener('click', function(event){
 
-
-    timer.innerHTML = ''
+    startTimer();
+    //timer.innerHTML = ''
     timer.style.color = 'white'
 })
 
 pausar.addEventListener('click', function(event){
     
+    clearInterval(watchTimer);
 
     timer.style.color = 'red'
 })

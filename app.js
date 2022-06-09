@@ -22,6 +22,31 @@ function startTimer() {  //função para iniciar o timer
     iniciar.innerHTML = 'Iniciar'
 }
 
+document.addEventListener('click', function (e) {
+    const el = e.target;  //el para elementos
+
+    if (el.classList.contains('zerar')) {
+        clearInterval(watchTimer);
+        timer.innerHTML = '00:00:00'
+        timer.style.color = 'green'
+        second = 0;
+    }
+
+    if (el.classList.contains('pausar')) {
+        clearInterval(watchTimer);
+        timer.style.color = 'red'
+        iniciar.innerHTML = 'Continuar'
+        iniciar.style.textAlign = 'center'
+    }
+
+    if (el.classList.contains('iniciar')) {
+        clearInterval(watchTimer)
+        startTimer();
+        timer.style.color = 'white'
+    }
+});
+
+/*
 iniciar.addEventListener('click', function (event) {
     clearInterval(watchTimer)
     startTimer();
@@ -41,3 +66,4 @@ zerar.addEventListener('click', function (event) {
     timer.style.color = 'green'
     second = 0;
 })
+*/
